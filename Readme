@@ -1,0 +1,44 @@
+Business Use Case: Healthcare Data Analytics with Hive Partitioning and Bucketing
+Problem Statement
+A healthcare organization processes vast amounts of medical records, patient visits, and prescription data. This data is used to analyze healthcare trends, such as:
+1. Patient Visits by date and region.
+2. Top Prescribed Drugs in different regions and time periods.
+3. Patient Demographics analysis for targeted health programs.
+
+Given the large scale of the dataset, querying the data for reports becomes slow without proper optimization. The organization wants to:
+- Optimize queries to retrieve data based on visit date and region for reporting purposes.
+- Speed up queries for specific prescription drug trends and patient demographics.
+- Use partitioning and bucketing to manage the dataset efficiently in Hive, improving query performance and storage optimization.
+Sample Data
+Medical Visits Table (medical_visits)
+Columns:
+- visit_id: INT
+- patient_id: INT
+- region: STRING
+- visit_date: DATE
+- diagnosis: STRING
+- treatment: STRING
+
+Sample Data:
+1, 101, North, 2023-09-01, Hypertension, Medication
+2, 102, South, 2023-09-02, Diabetes, Insulin
+3, 103, East, 2023-09-03, Flu, Antiviral
+4, 104, North, 2023-09-04, Asthma, Inhaler
+5, 105, South, 2023-09-05, Hypertension, Medication
+Prescription Data Table (prescriptions)
+Columns:
+- prescription_id: INT
+- visit_id: INT
+- patient_age: INT
+- patient_gender: STRING
+- drug_name: STRING
+- dosage: STRING
+- region: STRING
+- prescription_date: DATE
+
+Sample Data:
+1, 1, 45, Male, Lisinopril, 10mg, North, 2023-09-01
+2, 2, 60, Female, Metformin, 500mg, South, 2023-09-02
+3, 3, 25, Male, Tamiflu, 75mg, East, 2023-09-03
+4, 4, 50, Female, Albuterol, 90mcg, North, 2023-09-04
+5, 5, 70, Male, Lisinopril, 20mg, South, 2023-09-05
